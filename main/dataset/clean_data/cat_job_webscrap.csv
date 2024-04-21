@@ -1,0 +1,43 @@
+cat_job_id,cat_job,sub_cat_job_id,sub_cat_job
+1,Agriculteurs exploitants,11,Agriculteurs sur petite exploitation
+1,Agriculteurs exploitants,12,Agriculteurs sur moyenne exploitation
+1,Agriculteurs exploitants,13,Agriculteurs sur grande exploitation
+2,"Artisans, commerçants et chefs d’entreprise",21,Artisan
+2,"Artisans, commerçants et chefs d’entreprise",22,Commerçant et assimilés
+2,"Artisans, commerçants et chefs d’entreprise",23,Chefs d’entreprise de 10 salariés ou plus
+3,Cadres et professions intellectuelles supérieures,31,Professions libérales
+3,Cadres et professions intellectuelles supérieures,33,Cadres de la fonction publique
+3,Cadres et professions intellectuelles supérieures,34,"Professeurs, professions scientifiques"
+3,Cadres et professions intellectuelles supérieures,35,"Professions de l’information, des arts et des spectacles"
+3,Cadres et professions intellectuelles supérieures,37,Cadres administratifs et commerciaux d’entreprise
+3,Cadres et professions intellectuelles supérieures,38,Ingénieurs et cadres techniques d’entreprise
+4,Professions intermédiaires,42,"Professeurs des écoles, instituteurs et assimilés"
+4,Professions intermédiaires,43,Professions intermédiaires de la santé et du travail social
+4,Professions intermédiaires,44,"Clergé, religieux"
+4,Professions intermédiaires,45,Professions intermédiaires administratives de la fonction publique
+4,Professions intermédiaires,46,Professions intermédiaires administratives et commerciales des entreprises
+4,Professions intermédiaires,47,Techniciens
+4,Professions intermédiaires,48,"Contremaîtres, agents de maîtrise"
+5,Employés,52,Employés civils et agents de service de la fonction publique
+5,Employés,53,Policiers et militaires
+5,Employés,54,Employés administratifs d’entreprise
+5,Employés,55,Employés de commerce
+5,Employés,56,Personnels des services directs aux particuliers
+6,Ouvriers,62,Ouvriers qualifiés de type industriel
+6,Ouvriers,63,Ouvriers qualifiés de type artisanal
+6,Ouvriers,64,Chauffeurs
+6,Ouvriers,65,"Ouvriers qualifiés de la manutention, du magasinage et du transport"
+6,Ouvriers,67,Ouvriers non qualifiés de type industriel
+6,Ouvriers,68,Ouvriers non qualifiés de type artisanal
+6,Ouvriers,69,Ouvriers agricoles
+7,Retraités,71,Anciens agriculteurs exploitants
+7,Retraités,72,"Anciens artisans, commerçants et chefs d’entreprise"
+7,Retraités,74,Anciens cadres
+7,Retraités,75,Anciennes professions intermédiaires
+7,Retraités,77,Anciens employés
+7,Retraités,78,Anciens ouvriers
+8,Autres personnes sans activité professionnelle,81,Chômeurs n’ayant jamais travaillé
+8,Autres personnes sans activité professionnelle,83,Militaires du contingent
+8,Autres personnes sans activité professionnelle,84,"Élèves, étudiants"
+8,Autres personnes sans activité professionnelle,85,Personnes diverses sans activité professionnelle de moins de 60 ans (sauf retraités)
+8,Autres personnes sans activité professionnelle,86,Personnes diverses sans activité professionnelle de 60 ans et plus (sauf retraités)

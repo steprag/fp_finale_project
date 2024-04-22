@@ -96,9 +96,8 @@ def population_salary():
                         JOIN population p ON p.CODGEO = e.CODGEO
                         GROUP BY vall.code_departement, vall.departement_name, ve.population_establishment_correlation
                         ORDER BY pg.code_departement 
-                        LIMIT %s
-                        OFFSET %s
-        """, )
+
+        """ )
         population_salary = cursor.fetchall()
 
 

@@ -1,86 +1,81 @@
-swagger: "2.0"
+openapi: "3.0.0"
 info:
+  title: French Population, Establishment and Salary API
+  description: An API to retrieve population, establishment and salary data by department
   version: "1.0.0"
-  title: "French Population and Salary API"
-  description: "An API to retrieve population, establishment and salary information by department"
-basePath: "/"
-schemes:
-  - "http"
+servers:
+  - url: http://localhost:5000
 paths:
   /population_salary/{code_departement}:
     get:
-      summary: "Get establishment, population and salary information by department code"
+      summary: Retrieve population and salary data by department code
       parameters:
-        - name: "code_departement"
-          in: "path"
-          description: "The department code"
+        - name: code_departement
+          in: path
           required: true
-          type: "string"
-      responses:
-        200:
-          description: "Successful operation"
+          description: Department code
           schema:
-            type: "object"
-            properties:
-              population_salary:
-                type: "array"
-                items:
-                  $ref: "#/definitions/PopulationSalary"
-              establishment:
-                type: "array"
-                items:
-                  $ref: "#/definitions/Establishment"
-        404:
-          description: "No data found for the given department code"
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PopulationSalaryResponse'
+        '404':
+          description: Department not found
   /population_salary:
     get:
-      summary: "Get establishment, population and salary information for all departments"
-      parameters:
-        - name: "page"
-          in: "query"
-          description: "Page number"
-          required: false
-          type: "integer"
-        - name: "page_size"
-          in: "query"
-          description: "Number of items per page"
-          required: false
-          type: "integer"
+      summary: Retrieve population, establishment and salary data for all departments
       responses:
-        200:
-          description: "Successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/PopulationSalary"
-definitions:
-  PopulationSalary:
-    type: "object"
-    properties:
-      code_departement:
-        type: "string"
-      departement_name:
-        type: "string"
-      total_population:
-        type: "number"
-      average_salary_all:
-        type: "number"
-      average_salary_male:
-        type: "number"
-      average_salary_female:
-        type: "number"
-      gender_paygap:
-        type: "number"
-      population_establishment_correlation:
-        type: "string"
-      total_establishments:
-        type: "number"
-  Establishment:
-    type: "object"
-    properties:
-      establishment_id:
-        type: "integer"
-      establishment_name:
-        type: "string"
-      total_employees:
-        type: "integer"
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PopulationSalary'
+components:
+  schemas:
+    PopulationSalary:
+      type: object
+      properties:
+        code_departement:
+          type: string
+        departement_name:
+          type: string
+        total_population:
+          type: number
+        average_salary_all:
+          type: number
+        average_salary_male:
+          type: number
+        average_salary_female:
+          type: number
+        gender_paygap:
+          type: number
+        population_establishment_correlation:
+          type: string
+        total_establishments:
+          type: integer
+    PopulationSalaryResponse:
+      type: object
+      properties:
+        population_salary:
+          type: array
+          items:
+            $ref: '#/components/schemas/PopulationSalary'
+        establishment:
+          type: array
+          items:
+            $ref: '#/components/schemas/Establishment'
+    Establishment:
+      type: object
+      properties:
+        establishment_property1: # Replace with actual properties
+          type: string
+        establishment_property2:
+          type: string
+        # Add more properties as needed

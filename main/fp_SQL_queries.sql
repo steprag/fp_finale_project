@@ -116,6 +116,13 @@ FROM
     salary s;
 SELECT * FROM view_gender_paygap_by_dep;
 
+SELECT * FROM view_gender_paygap_by_dep;
+SELECT * FROM final_project.view_gender_paygap_by_dep
+order by gender_pay_gap limit 5;
+
+SELECT * FROM final_project.view_gender_paygap_by_dep
+order by gender_pay_gap desc limit 5 ;
+
  -- Corrélation de Pearson between population & etablishment by région 
 SELECT 
     ge.code_departement,
@@ -173,6 +180,20 @@ GROUP BY
 ORDER BY ge.code_departement;
 SELECT * FROM view_api_all_establishment_by_dep;
 
+-- Pearson correlation establishment and population
+  SELECT ROUND((
+        COUNT(*) * SUM(p.total_population * e.total_establishment) - 
+        SUM(p.total_population) * SUM(e.total_establishment)
+    ) / (
+        SQRT((COUNT(*) * SUM(p.total_population * p.total_population)) - (SUM(p.total_population) * SUM(p.total_population))) *
+        SQRT((COUNT(*) * SUM(e.total_establishment * e.total_establishment)) - (SUM(e.total_establishment) * SUM(e.total_establishment)))
+    ), 2) AS population_establishment_correlation
+FROM 
+    population p
+JOIN 
+    geography ge ON p.CODGEO = ge.CODGEO
+JOIN 
+    establishment e ON p.CODGEO = e.CODGEO;
 select * 
 from view_api_all_establishment_by_dep vapi
 join view_all_population_salary_by_dep vall on vall.code_departement = vapi.code_departement;
@@ -241,3 +262,4 @@ JOIN view_api_all_establishment_by_dep ve ON ve.code_departement = vall.code_dep
 JOIN establishment e ON ge.CODGEO = e.CODGEO
 GROUP BY vall.code_departement, vall.departement_name, ve.population_establishment_correlation;
 
+select * from view_all_population_salary_by_dep;

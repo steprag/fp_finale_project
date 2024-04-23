@@ -194,32 +194,13 @@ JOIN
     geography ge ON p.CODGEO = ge.CODGEO
 JOIN 
     establishment e ON p.CODGEO = e.CODGEO;
+    
+    
 select * 
 from view_api_all_establishment_by_dep vapi
 join view_all_population_salary_by_dep vall on vall.code_departement = vapi.code_departement;
 
--- view API 2
-SELECT 
-    vall.code_departement,
-    vall.departement_name,
-    SUM(vall.total_population) AS total_population,
-    AVG(pg.avg_salary_all) AS average_salary_all,
-    AVG(pg.avg_salary_male) AS average_salary_male,
-    AVG(pg.avg_salary_female) AS average_salary_female,
-    AVG(pg.gender_pay_gap) AS gender_paygap,
-    ve.total_establishments,
-    ve.total_micro_firms,
-    ve.total_small_firms,
-    ve.total_medium_firms,
-    ve.total_large_firms
-FROM view_all_population_salary_by_dep vall
-JOIN view_gender_paygap_by_dep pg ON vall.code_departement = pg.code_departement
-JOIN view_total_establishments_by_region_with_size_order ve
-GROUP BY vall.code_departement, vall.departement_name, ve.total_establishments,
-    ve.total_micro_firms,
-    ve.total_small_firms,
-    ve.total_medium_firms,
-    ve.total_large_firms;
+
 
 SELECT 
     vall.code_departement,
@@ -263,3 +244,10 @@ JOIN establishment e ON ge.CODGEO = e.CODGEO
 GROUP BY vall.code_departement, vall.departement_name, ve.population_establishment_correlation;
 
 select * from view_all_population_salary_by_dep;
+
+select * from salary_all;
+
+select *
+ from view_gender_paygap_by_dep;
+ 
+ select * from population;
